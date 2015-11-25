@@ -1,6 +1,20 @@
 Rails.application.routes.draw do
 
-mount SuperfeedrEngine::Engine => SuperfeedrEngine::Engine.base_path
+#mount SuperfeedrEngine::Engine => SuperfeedrEngine::Engine.base_path
+
+ #get "/feed" => "pages#feed", :as => "feed"
+ 
+
+resources :news_items
+get '/feed' => 'news_items#feed',
+      :as => :feed,
+      :defaults => { :format => 'atom' }
+
+  #get 'feed' => 'news_items#feed'
+
+
+
+#get 'feed.rss', to: 'feeds#rss', :format => 'rss'
 
   # The priority is based upon order of creation: first created -> highest priority.
   # See how all your routes lay out with "rake routes".
