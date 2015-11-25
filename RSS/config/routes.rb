@@ -6,9 +6,11 @@ Rails.application.routes.draw do
  
 
 resources :news_items
+=begin
 get '/feed' => 'news_items#feed',
       :as => :feed,
       :defaults => { :format => 'atom' }
+=end
 
   #get 'feed' => 'news_items#feed'
 
